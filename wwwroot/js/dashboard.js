@@ -9,6 +9,10 @@ const state = {
   scanIntervalSeconds: 60
 };
 
+const test={
+  return "OK";
+}
+
 const elements = Object.fromEntries([
   "connection-label", "last-scan", "next-scan", "system-banner", "system-status", "system-note",
   "total-count", "online-count", "offline-count", "latency-count", "host-total", "host-search",
