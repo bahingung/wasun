@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101615">
+  <title>Office Network Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Office Network Monitor home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span><strong>OFFICE</strong><small>NETWORK MONITOR</small></span>
+      </a>
+      <div class="network-context"><span class="eyebrow">NETWORK</span><strong id="network-label">10.130.50.0/24</strong></div>
+      <div class="top-actions">
+        <span class="live-indicator"><i></i><span id="connection-label">CONNECTING</span></span>
+        <button class="button button-quiet" id="scan-button" type="button" title="Queue a network scan">↻ <span>Scan now</span></button>
+        <button class="button button-add" id="add-host-button" type="button">＋ <span>Add host</span></button>
+      </div>
+    </header>
+
+    <section class="overview" aria-label="Network overview">
+      <div class="overview-heading">
+        <div><p class="eyebrow">LIVE OPERATIONS</p><h1>Network overview</h1></div>
+        <div class="scan-times"><span>LAST SCAN <strong id="last-scan">Waiting for first scan</strong></span><span>NEXT SCAN <strong id="next-scan">--:--:--</strong></span></div>
+      </div>
+      <div class="status-banner" id="system-banner" data-state="unknown">
+        <span class="banner-pulse"></span><span class="eyebrow">SYSTEM STATUS</span><strong id="system-status">DISCOVERING</strong>
+        <span class="banner-note" id="system-note">Waiting for the first network scan</span>
+      </div>
+      <div class="metrics">
+        <article class="metric metric-total"><span class="eyebrow">MONITORED HOSTS</span><strong id="total-count">--</strong><small>discovered or configured</small></article>
+        <article class="metric metric-online"><span class="eyebrow">ONLINE</span><strong id="online-count">--</strong><small>responding to ICMP</small></article>
+        <article class="metric metric-offline"><span class="eyebrow">OFFLINE</span><strong id="offline-count">--</strong><small>no response received</small></article>
+        <article class="metric metric-latency"><span class="eyebrow">AVG. LATENCY</span><strong><span id="latency-count">--</span><small> ms</small></strong><small>online hosts only</small></article>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Monitored hosts and recent events">
+      <div class="hosts-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">INVENTORY</p><h2>Monitored hosts <span id="host-total">0</span></h2></div>
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="host-search" type="search" placeholder="Search IP, name, type" autocomplete="off"><kbd>/</kbd></label>
+        </div>
+        <div class="table-tools">
+          <div class="filter-tabs" role="tablist" aria-label="Filter hosts">
+            <button class="filter-tab active" data-filter="all" type="button">All <span id="filter-all-count">0</span></button>
+            <button class="filter-tab" data-filter="online" type="button">Online <span id="filter-online-count">0</span></button>
+            <button class="filter-tab" data-filter="offline" type="button">Offline <span id="filter-offline-count">0</span></button>
+            <button class="filter-tab" data-filter="warning" type="button">Warning</button>
+          </div>
+          <span class="sort-caption">SORT BY <button id="sort-button" type="button">IP ADDRESS ↑</button></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>IP ADDRESS</th><th>DEVICE NAME</th><th>TYPE</th><th>STATUS</th><th>LATENCY</th><th>TCP CHECKS</th><th>LAST CHECK</th></tr></thead>
+            <tbody id="host-rows"><tr class="empty-row"><td colspan="7"><span class="empty-mark">◌</span><strong>Discovering network devices</strong><small>Hosts that respond to the first scan will appear here.</small></td></tr></tbody>
+          </table>
+        </div>
+        <div class="table-footer"><span id="table-result-count">0 devices</span><span>Refreshes automatically</span></div>
+      </div>
+
+      <aside class="events-panel">
+        <div class="panel-heading"><div><p class="eyebrow">NETWORK ACTIVITY</p><h2>Recent events</h2></div><span class="event-live">LIVE</span></div>
+        <ol class="event-list" id="event-list"><li class="event-empty">No status changes recorded yet.</li></ol>
+        <div class="event-foot"><span class="event-dot"></span>STATUS TRANSITIONS</div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>OFFICE NETWORK MONITOR</span><span>ICMP + CONFIGURED TCP PORTS</span><span id="footer-range">10.130.50.1 — 10.130.50.254</span></footer>
+  </main>
+
+  <dialog id="host-dialog" class="host-dialog">
+    <form id="host-form" class="dialog-form">
+      <div class="dialog-heading"><div><p class="eyebrow">DEVICE INVENTORY</p><h2>Add monitored host</h2></div><button class="close-button" type="button" data-close-dialog aria-label="Close">×</button></div>
+      <label>IP address<input name="ipAddress" placeholder="10.130.50.20" required inputmode="decimal" pattern="\d{1,3}(\.\d{1,3}){3}"></label>
+      <label>Device name<input name="displayName" placeholder="Printer-01" maxlength="80"></label>
+      <label>Device type<select name="deviceType"><option>Unknown</option><option>Network</option><option>Server</option><option>Printer</option><option>Workstation</option><option>Access Point</option><option>Other</option></select></label>
+      <p class="form-error" id="host-form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancel</button><button class="button button-add" type="submit">Add host</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <div class="detail-content">
+      <div class="dialog-heading"><div><p class="eyebrow">HOST DETAILS</p><h2 id="detail-ip">--</h2></div><button class="close-button" type="button" data-close-dialog aria-label="Close">×</button></div>
+      <div class="detail-subtitle"><strong id="detail-name">Unknown device</strong><span id="detail-type">Unknown</span><button id="edit-host-button" class="text-button" type="button">Edit</button></div>
+      <div class="detail-stats"><div><span class="eyebrow">STATUS</span><strong id="detail-status">--</strong></div><div><span class="eyebrow">LATENCY</span><strong id="detail-latency">--</strong></div><div><span class="eyebrow">LAST CHECK</span><strong id="detail-last-check">--</strong></div></div>
+      <section class="detail-section"><div class="detail-section-title"><h3>TCP connectivity</h3><span>CONFIGURED PORTS</span></div><ul class="tcp-list" id="detail-tcp"></ul></section>
+      <section class="detail-section"><div class="detail-section-title"><h3>Latency · last hour</h3><span>ICMP ROUND-TRIP</span></div><div class="chart-wrap"><canvas id="latency-chart" aria-label="Latency graph for the last hour"></canvas><div class="chart-empty" id="chart-empty">No latency history yet</div></div></section>
+    </div>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
