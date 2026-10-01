@@ -6649,11 +6649,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ACER\\OfficeNetworkMonitor\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\ACER\\minitorNetwork\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
       "projectName": "OfficeNetworkMonitor.Tests",
-      "projectPath": "C:\\Users\\ACER\\OfficeNetworkMonitor\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
+      "projectPath": "C:\\Users\\ACER\\minitorNetwork\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\OfficeNetworkMonitor\\tests\\OfficeNetworkMonitor.Tests\\obj\\",
+      "outputPath": "C:\\Users\\ACER\\minitorNetwork\\tests\\OfficeNetworkMonitor.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6668,8 +6668,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ACER\\OfficeNetworkMonitor\\OfficeNetworkMonitor.csproj": {
-              "projectPath": "C:\\Users\\ACER\\OfficeNetworkMonitor\\OfficeNetworkMonitor.csproj"
+            "C:\\Users\\ACER\\minitorNetwork\\OfficeNetworkMonitor.csproj": {
+              "projectPath": "C:\\Users\\ACER\\minitorNetwork\\OfficeNetworkMonitor.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MHl/18zStDs=",
+  "dgSpecHash": "fuFovSQdKIo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\OfficeNetworkMonitor\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\minitorNetwork\\tests\\OfficeNetworkMonitor.Tests\\OfficeNetworkMonitor.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
