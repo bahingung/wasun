@@ -16,7 +16,9 @@
   --sans: "Manrope", "Segoe UI", sans-serif;
 }
 
-
+.test{
+  color: red;
+}
 
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 360px; background: radial-gradient(ellipse at 8% 0%, #1d2a22 0, transparent 35%), var(--bg); color: var(--text); font-family: var(--sans); font-size: 13px; }
