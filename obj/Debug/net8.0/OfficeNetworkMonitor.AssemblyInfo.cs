@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OfficeNetworkMonitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85018a14e5d2e0d58543cc01f67f5d0e20eb3221")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+520b71b9159d1083f96a159d4951717d13d16a85")]
 [assembly: System.Reflection.AssemblyProductAttribute("OfficeNetworkMonitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OfficeNetworkMonitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
